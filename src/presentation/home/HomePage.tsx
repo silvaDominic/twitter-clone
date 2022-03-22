@@ -24,7 +24,7 @@ export function HomePage({generalSearch}: ISearchService) {
         event.preventDefault();
         generalSearch()
             .then(res => {
-                console.log(res.data);
+                console.log(res);
                 navigate("/search");
             })
             .catch(err => console.log(err));

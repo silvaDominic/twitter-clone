@@ -4,6 +4,7 @@ import {HomePage} from "./home/HomePage";
 import {NewsFeed} from "./search/NewsFeed";
 import React from "react";
 import {HttpService} from "../application/http.service";
+import {AxiosResponse} from "axios";
 
 export function App() {
     return (
@@ -18,6 +19,7 @@ export function App() {
     );
 
     function fakeSearch() {
-        return HttpService.get("https://jsonplaceholder.typicode.com/posts");
+        return HttpService.get<AxiosResponse>("https://jsonplaceholder.typicode.com/posts")
+            .then(res => res.data);
     }
 }

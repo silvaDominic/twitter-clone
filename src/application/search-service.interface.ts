@@ -1,3 +1,3 @@
 export interface ISearchService {
-    generalSearch(): Promise<any>
+    generalSearch(): Promise<unknown>
 }
