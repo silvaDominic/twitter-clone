@@ -1,3 +1,5 @@
+import { Post } from "./post.interface";
+
 export interface ISearchService {
-    generalSearch(): Promise<unknown>
+    generalSearch(query: string): Promise<Post[]>
 }
