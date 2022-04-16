@@ -8,11 +8,13 @@ import { SetupWorkerApi } from "msw";
 function prepare(): StartReturnType | Promise<void> {
   if (process.env.NODE_ENV === 'development') {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const { worker }: {worker: SetupWorkerApi} = require('./mocks/browser');
-    return worker.start();
+    const { worker }: {worker: SetupWorkerApi} = require('./__testing__/mocks/browser');
+    return worker.start({
+      onUnhandledRequest: 'warn',
+    });
   }
 
-  return Promise.resolve()
+  return Promise.resolve();
 }
 
 void prepare().then(() => {
@@ -23,5 +25,6 @@ void prepare().then(() => {
 
     document.getElementById('root')
   );
-});
+})
+
 
