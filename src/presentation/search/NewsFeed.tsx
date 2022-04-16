@@ -11,24 +11,37 @@ export function NewsFeed({generalSearch}: ISearchService) {
 
   useEffect(() => {
     // Fetch Posts
+    let isMounted = true
     generalSearch(search)
       .then((posts: Post[]) => {
-        setFeed(posts)
+        if (isMounted) {
+          setFeed(posts)
+        }
       })
       .catch(err => {
-        console.log(err)
+          console.log(err)
       });
+
+    return () => {
+      isMounted = false
+    };
   }, []);
 
   return (
     <Container>
       <Text fontSize="xl" align="center">News Feed</Text>
       <Flex>
-        <UnorderedList>
-          {feed.map(item => {
-            return <ListItem key={item.id}>{item.title}</ListItem>
-          })}
-        </UnorderedList>
+        {
+          feed.length > 0
+            ?
+            <UnorderedList>
+              {feed.map(item => {
+                return <ListItem key={item.id}>{item.title}</ListItem>
+              })}
+            </UnorderedList>
+            :
+            <Text fontSize="xl" align="center">No results</Text>
+        }
       </Flex>
     </Container>
   );

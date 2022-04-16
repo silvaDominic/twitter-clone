@@ -5,7 +5,7 @@ import { NewsFeed } from "./search/NewsFeed";
 import { Post } from "../application/post.interface";
 import { ChakraProvider } from "@chakra-ui/react";
 import { HttpService } from "../application/http.service";
-import { ENDPOINT_POSTS } from "../constants/endpoints.const";
+import { ENDPOINT_POSTS } from "../libs/constants/endpoints.const";
 
 export function App() {
   return (

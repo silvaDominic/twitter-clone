@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { PlainObject } from "../types/object-literal.type";
-import { BASE_URL } from "../constants/endpoints.const";
+import { PlainObject } from "../libs/types/object-literal.type";
+import { BASE_URL } from "../libs/constants/endpoints.const";
 
 const http = axios.create({
   baseURL: BASE_URL,
