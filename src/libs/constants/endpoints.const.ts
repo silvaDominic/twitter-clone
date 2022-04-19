@@ -1,3 +1,5 @@
 export const BASE_URL = process.env.REACT_APP_BASE_URL;
+const NEWSFEED_API_BASE_URL = process.env.REACT_APP_NEWSFEED_BASE_URL || "";
+const NEWSFEED_API_VERSION = process.env.REACT_APP_NEWSFEED_VERSION_LATEST || "";
 
-export const ENDPOINT_POSTS = process.env.REACT_APP_ENDPOINT_POSTS || "";
+export const ENDPOINT_POSTS = `${NEWSFEED_API_BASE_URL}/${NEWSFEED_API_VERSION}/tweets`;
